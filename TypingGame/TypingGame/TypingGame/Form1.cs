@@ -32,30 +32,44 @@ namespace TypingGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            
+
+            
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
             if (listBox1.Items.Contains(e.KeyCode))
             {
                 listBox1.Items.Remove(e.KeyCode);
                 listBox1.Refresh();
 
-                if(timer1.Interval > 400)
-                   timer1.Interval -=10;
-                if(timer1.Interval > 250)
-                   timer1.Interval -=7;
-                if(timer1.Interval > 100)
-                   timer1.Interval -=2;
-
-                difficultyProgressBar.Value = 800 - timer1.Interval;
+                if (timer1.Interval > 400)
+                {
+                    timer1.Interval -= 10;
+                }
+                if (timer1.Interval > 250)
+                {
+                    timer1.Interval -= 7;
+                }
+                if (timer1.Interval > 100)
+                {
+                    timer1.Interval -= 2;
+                }
+                difficultyProgressBar.Value = (800 - timer1.Interval) / 10;
 
                 stats.Update(true);
             }
-            else{
+            else
+            {
                 stats.Update(false);
             }
-            correctLabel.Text = "Correct: " +stats.Correct;
-            missedLabel.Text = "Missed: " +stats.Missed;
-            totalLabel.Text = "Total: " +stats.Total;
-            accuracyLabel.Text = "Accuracy: " +stats.Accuracy + "%";
-            
+            correctLabel.Text = "Correct: " + stats.Correct;
+            missedLabel.Text = "Missed: " + stats.Missed;
+            totalLabel.Text = "Total: " + stats.Total;
+            accuracyLabel.Text = "Accuracy: " + stats.Accuracy + "%";
         }
+
+
     }
 }
