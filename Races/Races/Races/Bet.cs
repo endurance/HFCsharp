@@ -12,17 +12,21 @@ namespace Races
         public int Dog;
         public Guy Bettor;
 
-        public RadioButton MyRadioButton;
-        public Label MyLabel;
+        public Bet(int Amount, int Dog, Guy which)
+        {
+            this.Amount = Amount;
+            this.Dog = Dog;
+            Bettor = which;
+        }
 
         public string GetDescription()
         {
-
+            return "";
         }
 
         public int PayOut(int Winner)
         {
-
+            return 0;
         }
 
 
