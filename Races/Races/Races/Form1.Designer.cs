@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,6 +50,8 @@
             this.Dog2 = new System.Windows.Forms.PictureBox();
             this.Dog3 = new System.Windows.Forms.PictureBox();
             this.Dog4 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogNumberNumeric)).BeginInit();
@@ -71,6 +74,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.reset);
             this.groupBox1.Controls.Add(this.BobLabel);
             this.groupBox1.Controls.Add(this.AlLabel);
             this.groupBox1.Controls.Add(this.JoeLabel);
@@ -95,9 +99,9 @@
             // BobLabel
             // 
             this.BobLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BobLabel.Location = new System.Drawing.Point(407, 78);
+            this.BobLabel.Location = new System.Drawing.Point(349, 80);
             this.BobLabel.Name = "BobLabel";
-            this.BobLabel.Size = new System.Drawing.Size(186, 20);
+            this.BobLabel.Size = new System.Drawing.Size(244, 20);
             this.BobLabel.TabIndex = 13;
             this.BobLabel.Text = "Bob\'s Bet";
             this.BobLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,9 +109,9 @@
             // AlLabel
             // 
             this.AlLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AlLabel.Location = new System.Drawing.Point(407, 52);
+            this.AlLabel.Location = new System.Drawing.Point(349, 55);
             this.AlLabel.Name = "AlLabel";
-            this.AlLabel.Size = new System.Drawing.Size(186, 20);
+            this.AlLabel.Size = new System.Drawing.Size(244, 20);
             this.AlLabel.TabIndex = 12;
             this.AlLabel.Text = "Al\'s Bet";
             this.AlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -115,9 +119,9 @@
             // JoeLabel
             // 
             this.JoeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.JoeLabel.Location = new System.Drawing.Point(407, 29);
+            this.JoeLabel.Location = new System.Drawing.Point(349, 30);
             this.JoeLabel.Name = "JoeLabel";
-            this.JoeLabel.Size = new System.Drawing.Size(186, 20);
+            this.JoeLabel.Size = new System.Drawing.Size(244, 20);
             this.JoeLabel.TabIndex = 11;
             this.JoeLabel.Text = "Joe\'s Bet";
             this.JoeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,7 +129,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(404, 16);
+            this.label2.Location = new System.Drawing.Point(346, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 10;
@@ -299,6 +303,21 @@
             this.Dog4.TabIndex = 5;
             this.Dog4.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_tick);
+            // 
+            // reset
+            // 
+            this.reset.Location = new System.Drawing.Point(425, 133);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 14;
+            this.reset.Text = "Reset Position!";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +367,8 @@
         private System.Windows.Forms.PictureBox Dog2;
         private System.Windows.Forms.PictureBox Dog3;
         private System.Windows.Forms.PictureBox Dog4;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button reset;
         
     }
 }

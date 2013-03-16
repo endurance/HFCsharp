@@ -9,24 +9,22 @@ namespace Races
     class Greyhound
     {
         public int StartingPosition = 20;
-        public int RacetrackLength = 500;
+        public int RacetrackLength = 450;
         public PictureBox MyPictureBox = null;
         public int Location = 0;
         public Random ran;
 
-        public Greyhound(PictureBox picture)
+        public Greyhound(PictureBox picture, int seed)
         {
             MyPictureBox = picture;
+            ran = new Random(seed);
         }
 
         public bool Run()
         {
-            ran = new Random();
-            int step = ran.Next(5);
+            int step = ran.Next(4)+1;
             Point p = MyPictureBox.Location;
             p.X += step;
-            Location = p.X;
-
             MyPictureBox.Location = p;
             if (p.X >= RacetrackLength)
             {
@@ -41,7 +39,9 @@ namespace Races
 
         public void TakeStartingPosition()
         {
-            Location = StartingPosition;
+            Point p = MyPictureBox.Location;
+            p.X = StartingPosition;
+            MyPictureBox.Location = p;
         }
     }
 }

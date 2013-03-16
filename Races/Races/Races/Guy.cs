@@ -18,16 +18,27 @@ namespace Races
             this.Cash = Cash;
             this.MyLabel = MyLabel;
             MyRadioButton = guyButton;
+            MyBet = null;
 
         }
         public void UpdateLabels()
         {
             MyRadioButton.Text = Name + " has " + Cash + " bucks!";
+            if (MyBet == null)
+            {
+                MyLabel.Text = Name;
+            }
+            else
+            {
+                MyLabel.Text = Name + " has bet " + MyBet.Amount + " bucks on dog number " + MyBet.Dog;
+            }
+
+
         }
 
         public void ClearBet()
         {
-
+            MyBet = null;
         }
 
         public bool PlaceBet(int Amount, int Dog)
@@ -39,7 +50,7 @@ namespace Races
 
         public void Collect(int Winner)
         {
-
+            Cash += MyBet.PayOut(Winner);
         }
 
 

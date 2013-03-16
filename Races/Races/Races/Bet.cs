@@ -26,7 +26,14 @@ namespace Races
 
         public int PayOut(int Winner)
         {
-            return 0;
+            if (Dog == Winner)
+            {
+                return 2 * Amount;
+            }
+            else
+            {
+                return -Amount;
+            }
         }
 
 
