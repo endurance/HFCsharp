@@ -30,11 +30,11 @@ namespace Races
             guys[0].UpdateLabels();
             guys[1].UpdateLabels();
             guys[2].UpdateLabels();
-
-            dogs[0] = new Greyhound(Dog1, 1);
-            dogs[1] = new Greyhound(Dog2, 2);
-            dogs[2] = new Greyhound(Dog3, 3);
-            dogs[3] = new Greyhound(Dog4, 4);
+            Random ran = new Random();
+            dogs[0] = new Greyhound(Dog1, ran);
+            dogs[1] = new Greyhound(Dog2, ran);
+            dogs[2] = new Greyhound(Dog3, ran);
+            dogs[3] = new Greyhound(Dog4, ran);
         }
         private void radioClicked(object sender, EventArgs e)
         {
@@ -84,14 +84,6 @@ namespace Races
             {
                 timer1.Enabled = true;
                 timer1.Start();
-                
-                for (int i = 0; i < 3; i++)
-                {
-                    guys[i].Collect(winner);
-                    guys[i].ClearBet();
-                    guys[i].UpdateLabels();
-
-                }
             }
             else
             {
@@ -110,7 +102,15 @@ namespace Races
                     timer1.Enabled = false;
                     winner = i;
                     int dnumber = winner + 1;
+                    for (int j = 0; j < 3; j++)
+                    {
+                        guys[j].Collect(winner);
+                        guys[j].ClearBet();
+                        guys[j].UpdateLabels();
+
+                    }
                     MessageBox.Show("Dog " + dnumber + " has won the race!!");
+                    break;
                 }
             }
 
@@ -124,6 +124,7 @@ namespace Races
             {
                 dogs[i].TakeStartingPosition();
             }
+            win = false;
         }
 
 

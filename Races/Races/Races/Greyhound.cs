@@ -14,10 +14,10 @@ namespace Races
         public int Location = 0;
         public Random ran;
 
-        public Greyhound(PictureBox picture, int seed)
+        public Greyhound(PictureBox picture, Random r)
         {
             MyPictureBox = picture;
-            ran = new Random(seed);
+            this.ran = r;
         }
 
         public bool Run()
